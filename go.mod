@@ -1,4 +1,4 @@
-module pyrtos.com/m/v2
+module pyrtos-api/v2
 
 go 1.16
 
