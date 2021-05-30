@@ -12,6 +12,9 @@ func main() {
 	r.GET("/", func(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"data": "hello world!"})
 	})
+	r.GET("/hello", func(c *gin.Context) {
+		c.JSON(http.StatusOK, gin.H{"data": "hello world!"})
+	})
 
 	r.Run()
 }
