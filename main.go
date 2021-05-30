@@ -1,20 +1,18 @@
 package main
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"pyrtos.com/api/controllers"
+	"pyrtos.com/api/models"
 )
 
 func main() {
 	r := gin.Default()
 
-	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "hello world!"})
-	})
-	r.GET("/hello", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "hello world!"})
-	})
+	models.ConnectDataBase()
+
+	r.GET("/devices", controllers.FindDevices)
+	r.POST("/devices", controllers.CreateDevice)
 
 	r.Run()
 }
